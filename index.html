@@ -468,14 +468,15 @@ body.dark-hover #cursorglow{opacity:1}
  function check(){
   var vh = window.innerHeight || document.documentElement.clientHeight;
   for(var i=targets.length-1; i>=0; i--){
-   if(targets[i].getBoundingClientRect().top < vh*0.9){ show(targets[i]); targets.splice(i,1); }
+   if(targets[i].getBoundingClientRect().top < vh*0.92){ show(targets[i]); targets.splice(i,1); }
   }
   if(flow && flow.getBoundingClientRect().top < vh*0.85){ flow.classList.add('in'); flow = null; }
  }
- window.addEventListener('scroll', check, {passive:true});
- window.addEventListener('resize', check, {passive:true});
+ ['scroll','resize','touchmove','load'].forEach(function(ev){ window.addEventListener(ev, check, {passive:true}); });
  window.addEventListener('hashchange', function(){ setTimeout(check, 80); });
  check();
+ // failsafe: pase lo que pase, ningún texto queda invisible
+ setTimeout(function(){ while(targets.length){ show(targets.pop()); } if(flow){ flow.classList.add('in'); flow = null; } }, 1800);
 
  var bar = document.querySelector('.progress');
  if(bar){
