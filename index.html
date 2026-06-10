@@ -300,6 +300,24 @@ body.menu-open{overflow:hidden}
  .hamb{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:0;cursor:pointer}
  .hamb span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px}
 }
+/* formulario de contacto */
+.formsec{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+.formsec .eyebrow{color:var(--sand)}
+.formsec .s-title{color:var(--cream)}
+.cform{max-width:660px;margin:38px 0 0}
+.cform-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cform .field{margin-bottom:20px}
+.cform label{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--sand);margin-bottom:8px}
+.cform input,.cform textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(212,196,174,.28);border-radius:6px;padding:13px 15px;color:var(--cream);font-family:var(--body);font-size:1rem;transition:border-color .2s ease,background .2s ease}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--terra);background:rgba(255,255,255,.06)}
+.cform textarea{resize:vertical;min-height:130px}
+.cform input:user-invalid,.cform textarea:user-invalid{border-color:#e6a07f}
+.cform-honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.cform-submit{margin-top:4px;border:0;cursor:pointer}
+.cform-status{margin-top:16px;font-size:.95rem;min-height:1.2em}
+.cform-status.ok{color:#a7d6b0}
+.cform-status.err{color:#e6a07f}
+@media (max-width:560px){.cform-row{grid-template-columns:1fr;gap:0}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -472,6 +490,36 @@ body.menu-open{overflow:hidden}
  </div>
 </section>
 
+<section class="section formsec" id="form">
+ <div class="wrap">
+  <span class="eyebrow">Escribinos</span>
+  <h2 class="s-title">Contanos sobre tu organización.</h2>
+  <form class="cform" id="cform" novalidate>
+   <input type="hidden" name="_subject" value="Nuevo mensaje desde globaltandemstudio.com">
+   <input type="hidden" name="_cc" value="mariana.arrieta@globaltandem.com">
+   <input type="hidden" name="_captcha" value="false">
+   <input type="hidden" name="_template" value="table">
+   <input type="text" name="_honey" class="cform-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+   <div class="cform-row">
+    <div class="field">
+     <label for="cf-name">Nombre</label>
+     <input id="cf-name" name="name" type="text" required autocomplete="name">
+    </div>
+    <div class="field">
+     <label for="cf-email">Email</label>
+     <input id="cf-email" name="email" type="email" required autocomplete="email">
+    </div>
+   </div>
+   <div class="field">
+    <label for="cf-msg">Mensaje</label>
+    <textarea id="cf-msg" name="message" rows="5" required></textarea>
+   </div>
+   <button type="submit" class="btn btn-cream cform-submit">Enviar mensaje</button>
+   <p class="cform-status" role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
+
 <footer>
  <div class="wrap foot">
   <div>
@@ -635,6 +683,36 @@ body.menu-open{overflow:hidden}
  if(closeBtn) closeBtn.addEventListener('click', close);
  menu.querySelectorAll('.navmenu-in a').forEach(function(a){ a.addEventListener('click', close); });
  document.addEventListener('keydown', function(e){ if((e.key === 'Escape' || e.keyCode === 27) && !menu.hidden) close(); });
+})();
+</script>
+
+<script>
+(function(){
+ var form = document.getElementById('cform'); if(!form) return;
+ var status = form.querySelector('.cform-status');
+ var btn = form.querySelector('.cform-submit');
+ var endpoint = 'https://formsubmit.co/ajax/martina.cartagena@globaltandem.com';
+ form.addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  if(form.querySelector('.cform-honey').value){ return; }
+  btn.disabled = true;
+  status.className = 'cform-status'; status.textContent = 'Enviando…';
+  fetch(endpoint, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) })
+   .then(function(r){ return r.json(); })
+   .then(function(d){
+    if(d && (d.success === true || d.success === 'true')){
+     form.reset();
+     status.className = 'cform-status ok';
+     status.textContent = '¡Gracias! Recibimos tu mensaje. Te respondemos a la brevedad.';
+    } else { throw new Error('fail'); }
+   })
+   .catch(function(){
+    status.className = 'cform-status err';
+    status.textContent = 'No se pudo enviar. Escribinos directo a martina.cartagena@globaltandem.com';
+   })
+   .finally(function(){ btn.disabled = false; });
+ });
 })();
 </script>
 
