@@ -313,6 +313,7 @@ body.menu-open{overflow:hidden}
 .cform label{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--silver);margin-bottom:8px}
 .cform input,.cform textarea{width:100%;background:var(--cream-soft);border:1px solid var(--sand);border-radius:6px;padding:13px 15px;color:var(--navy);font-family:var(--body);font-size:1rem;transition:border-color .2s ease,background .2s ease}
 .cform input:focus,.cform textarea:focus{outline:none;border-color:var(--terra);background:#fff}
+.cform input::placeholder,.cform textarea::placeholder{color:rgba(27,42,75,.38)}
 .cform textarea{resize:vertical;min-height:130px}
 .cform input:user-invalid,.cform textarea:user-invalid{border-color:#c0654a}
 .cform-honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
@@ -501,16 +502,16 @@ body.menu-open{overflow:hidden}
    <div class="cform-row">
     <div class="field">
      <label for="cf-name">Nombre</label>
-     <input id="cf-name" name="name" type="text" required autocomplete="name">
+     <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Ej. María González">
     </div>
     <div class="field">
      <label for="cf-email">Email</label>
-     <input id="cf-email" name="email" type="email" required autocomplete="email">
+     <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="Ej. maria@tuempresa.com">
     </div>
    </div>
    <div class="field">
     <label for="cf-msg">Mensaje</label>
-    <textarea id="cf-msg" name="message" rows="5" required></textarea>
+    <textarea id="cf-msg" name="message" rows="5" required placeholder="Contanos sobre tu organización y en qué te podemos ayudar…"></textarea>
    </div>
    <button type="submit" class="btn btn-cream cform-submit">Enviar mensaje</button>
    <p class="cform-status" role="status" aria-live="polite"></p>
