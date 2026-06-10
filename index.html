@@ -216,6 +216,18 @@ footer .wrap{position:relative;z-index:2}
  .hero-bg{top:0;height:100%}
 }
 
+/* ===== PREMIUM: spotlight de cursor, sheen 3D, scroll offset ===== */
+section[id],.marquee{scroll-margin-top:78px}
+
+#cursorglow{position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(201,144,111,.17),rgba(201,144,111,0) 60%);opacity:0;transition:opacity .35s ease;mix-blend-mode:screen;will-change:transform}
+body.dark-hover #cursorglow{opacity:1}
+
+.card{transform-style:preserve-3d;will-change:transform}
+.card>*{position:relative;z-index:1}
+.card::before{z-index:2}
+.card::after{content:"";position:absolute;inset:0;z-index:0;border-radius:5px;opacity:0;transition:opacity .3s ease;pointer-events:none;background:radial-gradient(200px circle at var(--gx,50%) var(--gy,50%),rgba(201,144,111,.20),rgba(201,144,111,0) 62%)}
+.card:hover::after{opacity:1}
+
 /* tarjetas: numeradas, con barra de acento y hover enriquecido */
 .card{position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--terra),var(--sand));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,.84,.44,1)}
@@ -480,6 +492,55 @@ footer .wrap{position:relative;z-index:2}
  window.addEventListener('scroll', onScroll, {passive:true});
  window.addEventListener('resize', function(){ mobile = window.matchMedia('(max-width:860px)').matches; }, {passive:true});
  onScroll();
+})();
+</script>
+
+<script>
+(function(){
+ if(!window.matchMedia || !window.matchMedia('(hover:hover)').matches) return;
+ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+ /* glow que sigue al cursor en secciones oscuras */
+ var glow = document.createElement('div'); glow.id = 'cursorglow';
+ document.body.appendChild(glow);
+ window.addEventListener('mousemove', function(e){
+  glow.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+ }, {passive:true});
+ ['.hero','.do','.final'].forEach(function(sel){
+  document.querySelectorAll(sel).forEach(function(s){
+   s.addEventListener('mouseenter', function(){ document.body.classList.add('dark-hover'); });
+   s.addEventListener('mouseleave', function(){ document.body.classList.remove('dark-hover'); });
+  });
+ });
+
+ /* sheen + leve tilt 3D en las tarjetas */
+ document.querySelectorAll('.card').forEach(function(card){
+  card.addEventListener('mousemove', function(e){
+   var r = card.getBoundingClientRect();
+   var x = e.clientX - r.left, y = e.clientY - r.top;
+   card.style.setProperty('--gx', x + 'px');
+   card.style.setProperty('--gy', y + 'px');
+   if(!reduce){
+    var rx = ((y / r.height) - .5) * -4.5;
+    var ry = ((x / r.width) - .5) * 4.5;
+    card.style.transform = 'translateY(-7px) perspective(760px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+   }
+  });
+  card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+ });
+
+ /* botones magnéticos */
+ if(!reduce){
+  document.querySelectorAll('.btn-cream').forEach(function(b){
+   b.addEventListener('mousemove', function(e){
+    var r = b.getBoundingClientRect();
+    var mx = e.clientX - (r.left + r.width/2);
+    var my = e.clientY - (r.top + r.height/2);
+    b.style.transform = 'translate(' + (mx*0.18).toFixed(1) + 'px,' + (my*0.3 - 2).toFixed(1) + 'px)';
+   });
+   b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+  });
+ }
 })();
 </script>
 
