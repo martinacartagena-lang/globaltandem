@@ -228,6 +228,15 @@ body.dark-hover #cursorglow{opacity:1}
 .card::after{content:"";position:absolute;inset:0;z-index:0;border-radius:5px;opacity:0;transition:opacity .3s ease;pointer-events:none;background:radial-gradient(200px circle at var(--gx,50%) var(--gy,50%),rgba(201,144,111,.20),rgba(201,144,111,0) 62%)}
 .card:hover::after{opacity:1}
 
+/* divisores de sección con curva */
+.shape-divider{position:absolute;left:0;width:100%;line-height:0;z-index:2;pointer-events:none;overflow:hidden}
+.shape-divider svg{display:block;width:100%;height:46px}
+.shape-divider .shape-fill{fill:var(--navy)}
+.shape-top{top:-1px}
+.shape-bottom{bottom:-1px}
+.shape-bottom svg{transform:rotate(180deg)}
+@media (max-width:860px){.shape-divider svg{height:28px}}
+
 /* tarjetas: numeradas, con barra de acento y hover enriquecido */
 .card{position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--terra),var(--sand));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,.84,.44,1)}
@@ -313,6 +322,7 @@ body.dark-hover #cursorglow{opacity:1}
 </div>
 
 <section class="section light" id="que-hacemos">
+ <div class="shape-divider shape-top" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
  <div class="wrap">
   <span class="eyebrow">Qué hacemos</span>
   <h2 class="s-title">Donde otros ven áreas, nosotras vemos conexiones.</h2>
@@ -340,6 +350,7 @@ body.dark-hover #cursorglow{opacity:1}
    </div>
   </div>
  </div>
+ <div class="shape-divider shape-bottom" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
 </section>
 
 <section class="section do" id="como-trabajamos">
@@ -367,6 +378,7 @@ body.dark-hover #cursorglow{opacity:1}
 </section>
 
 <section class="section light" id="nosotras">
+ <div class="shape-divider shape-top" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
  <div class="wrap">
   <div class="split">
    <div>
@@ -378,6 +390,7 @@ body.dark-hover #cursorglow{opacity:1}
    </div>
   </div>
  </div>
+ <div class="shape-divider shape-bottom" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
 </section>
 
 <section class="section final" id="a-quienes">
