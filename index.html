@@ -176,11 +176,45 @@ footer .wrap{position:relative;z-index:2}
 @keyframes floaty{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3%,-4%) scale(1.08)}}
 
 /* indicador de scroll */
-.scroll-cue{position:absolute;left:28px;bottom:22px;z-index:5;display:inline-flex;flex-direction:column;align-items:center;gap:10px;color:var(--sand);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;opacity:.8;transition:opacity .2s}
+.scroll-cue{position:absolute;right:28px;bottom:22px;z-index:5;display:inline-flex;flex-direction:column;align-items:center;gap:10px;color:var(--sand);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;opacity:.8;transition:opacity .2s}
 .scroll-cue i{display:block;width:1.5px;height:40px;background:linear-gradient(var(--terra),rgba(201,144,111,.05));position:relative;overflow:hidden}
 .scroll-cue i::after{content:"";position:absolute;top:-14px;left:0;width:100%;height:14px;background:var(--terra);animation:cue 1.9s cubic-bezier(.6,0,.4,1) infinite}
 @keyframes cue{0%{transform:translateY(0)}100%{transform:translateY(54px)}}
 .scroll-cue:hover{opacity:1}
+
+/* ===== EXTRA PRO: nav flotante, marquee, destello, parallax ===== */
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:100%;height:1.5px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,.84,.44,1)}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+.btn-cream{position:relative;overflow:hidden}
+.btn-cream::after{content:"";position:absolute;top:0;left:-130%;width:65%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .6s ease;pointer-events:none}
+.btn-cream:hover::after{left:140%}
+
+.hero-bg{top:-10%;height:120%;will-change:transform}
+
+.floatnav{position:fixed;top:0;left:0;width:100%;z-index:55;transform:translateY(-100%);transition:transform .45s cubic-bezier(.16,.84,.44,1);background:rgba(20,31,56,.85);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid rgba(212,196,174,.14)}
+.floatnav.show{transform:translateY(0)}
+.floatnav-in{display:flex;align-items:center;justify-content:space-between;height:62px;gap:24px}
+.floatnav-logo{font-family:var(--display);font-style:italic;font-size:1.45rem;color:var(--cream);letter-spacing:.01em}
+.floatnav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
+.floatnav-links a{color:var(--cream);opacity:.86;position:relative;transition:opacity .2s,color .2s}
+.floatnav-links a:not(.btn-nav):hover{opacity:1;color:var(--sand)}
+.btn-nav{background:var(--terra);color:var(--cream);padding:9px 20px;border-radius:2px;font-weight:600}
+.btn-nav:hover{background:var(--cream);color:var(--navy)}
+
+.marquee{background:var(--navy);color:var(--cream);overflow:hidden;white-space:nowrap;border-top:1px solid rgba(212,196,174,.12);border-bottom:1px solid rgba(212,196,174,.12);padding:18px 0;position:relative;z-index:2}
+.marquee-track{display:inline-flex;gap:36px;align-items:center;animation:marq 30s linear infinite;font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,1.8vw,1.5rem);will-change:transform}
+.marquee-track span{opacity:.92}
+.marquee-track .dot{color:var(--terra);opacity:1}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+@media (max-width:860px){
+ .floatnav-links a:not(.btn-nav){display:none}
+ .floatnav-logo{font-size:1.3rem}
+ .hero-bg{top:0;height:100%}
+}
 
 /* tarjetas: numeradas, con barra de acento y hover enriquecido */
 .card{position:relative;overflow:hidden}
@@ -216,6 +250,18 @@ footer .wrap{position:relative;z-index:2}
 <body>
 <div class="progress" aria-hidden="true"></div>
 
+<div class="floatnav" aria-hidden="true">
+ <div class="wrap floatnav-in">
+  <a class="floatnav-logo" href="#top">tándem</a>
+  <nav class="floatnav-links">
+   <a href="#que-hacemos">Qué hacemos</a>
+   <a href="#como-trabajamos">Cómo trabajamos</a>
+   <a href="#nosotras">Nosotras</a>
+   <a class="btn btn-nav" href="#contacto">Hablemos</a>
+  </nav>
+ </div>
+</div>
+
 <section class="hero" id="top">
  <div class="hero-bg" aria-hidden="true"></div>
  <div class="hero-veil" aria-hidden="true"></div>
@@ -245,6 +291,13 @@ footer .wrap{position:relative;z-index:2}
   <a class="scroll-cue" href="#que-hacemos" aria-label="Bajar a la sección Qué hacemos"><span>Scroll</span><i></i></a>
  </div>
 </section>
+
+<div class="marquee" aria-hidden="true">
+ <div class="marquee-track">
+  <span>Estrategia</span><span class="dot">·</span><span>Personas</span><span class="dot">·</span><span>Ejecución</span><span class="dot">·</span><span>Comunicación</span><span class="dot">·</span><span>Experiencia + IA</span><span class="dot">·</span><span>Resultados</span><span class="dot">·</span>
+  <span>Estrategia</span><span class="dot">·</span><span>Personas</span><span class="dot">·</span><span>Ejecución</span><span class="dot">·</span><span>Comunicación</span><span class="dot">·</span><span>Experiencia + IA</span><span class="dot">·</span><span>Resultados</span><span class="dot">·</span>
+ </div>
+</div>
 
 <section class="section light" id="que-hacemos">
  <div class="wrap">
@@ -405,6 +458,28 @@ footer .wrap{position:relative;z-index:2}
   window.addEventListener('scroll', upd, {passive:true});
   upd();
  }
+})();
+</script>
+
+<script>
+(function(){
+ var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var nav = document.querySelector('.floatnav');
+ var hero = document.getElementById('top');
+ var bg = document.querySelector('.hero-bg');
+ var mobile = window.matchMedia('(max-width:860px)').matches;
+ function onScroll(){
+  var sc = window.pageYOffset || document.documentElement.scrollTop;
+  if(nav && hero){
+   if(sc > hero.offsetHeight - 90) nav.classList.add('show'); else nav.classList.remove('show');
+  }
+  if(bg && !reduce && !mobile && hero && sc < hero.offsetHeight){
+   bg.style.transform = 'translateY(' + (sc*0.16) + 'px)';
+  }
+ }
+ window.addEventListener('scroll', onScroll, {passive:true});
+ window.addEventListener('resize', function(){ mobile = window.matchMedia('(max-width:860px)').matches; }, {passive:true});
+ onScroll();
 })();
 </script>
 
