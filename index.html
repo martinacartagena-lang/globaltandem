@@ -126,6 +126,10 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--terra);outline-offset
 .reveal{opacity:0}
 .reveal.in{animation:rvUp .72s cubic-bezier(.16,.84,.44,1) both}
 @keyframes rvUp{from{opacity:0}to{opacity:1}}
+.reveal.from-left.in{animation:rvLeft .72s cubic-bezier(.16,.84,.44,1) both}
+.reveal.from-right.in{animation:rvRight .72s cubic-bezier(.16,.84,.44,1) both}
+@keyframes rvLeft{from{opacity:0;transform:translateX(-46px)}to{opacity:1;transform:none}}
+@keyframes rvRight{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:none}}
 
 /* tarjetas con relieve al pasar el mouse */
 .card{transition:transform .3s cubic-bezier(.16,.84,.44,1),box-shadow .3s ease,border-color .3s ease}
@@ -396,22 +400,22 @@ body.menu-open{overflow:hidden}
   <h2 class="s-title">Donde otros ven áreas, nosotras vemos conexiones.</h2>
   <p class="do-intro">Muchas organizaciones tienen buenas ideas, equipos con potencial y oportunidades reales, pero les falta quien conecte las piezas. Ocupamos ese espacio entre la estrategia y la acción, y lo llevamos de la idea a la ejecución.</p>
   <div class="cap-grid">
-   <div class="card">
+   <div class="card from-left">
     <span class="card-no" aria-hidden="true">01</span>
     <h3>Estrategia bajada a la acción</h3>
     <p>Cuando todo parece urgente, ayudamos a identificar qué es lo importante y a convertirlo en un plan de acción realista y ejecutable.</p>
    </div>
-   <div class="card">
+   <div class="card from-right">
     <span class="card-no" aria-hidden="true">02</span>
     <h3>Integración de equipos</h3>
     <p>Cuando los equipos avanzan a distintos ritmos o con prioridades diferentes, ayudamos a construir una dirección común y una forma de trabajo más coordinada.</p>
    </div>
-   <div class="card">
+   <div class="card from-left">
     <span class="card-no" aria-hidden="true">03</span>
     <h3>Comunicación con criterio</h3>
     <p>Ordenamos ideas, propuestas y mensajes para que cada organización pueda comunicar con claridad lo que hace, el valor que aporta y por qué es diferente.</p>
    </div>
-   <div class="card">
+   <div class="card from-right">
     <span class="card-no" aria-hidden="true">04</span>
     <h3>Capacidad instalada</h3>
     <p>Dejamos herramientas, procesos y formas de trabajo que permiten sostener los resultados en el tiempo.</p>
@@ -426,17 +430,17 @@ body.menu-open{overflow:hidden}
   <span class="eyebrow">Cómo trabajamos</span>
   <h2 class="s-title">Un proceso simple, cercano y con dirección.</h2>
   <div class="flow">
-   <div class="fstep">
+   <div class="fstep from-left">
     <div class="fnode">01</div>
     <h3>Entendemos</h3>
     <p>Nos metemos en el negocio, escuchamos a las personas involucradas y detectamos qué necesita ordenarse, comunicarse o potenciarse.</p>
    </div>
-   <div class="fstep">
+   <div class="fstep from-left">
     <div class="fnode">02</div>
     <h3>Ordenamos</h3>
     <p>Priorizamos objetivos, definimos caminos posibles y convertimos ideas dispersas en un plan claro.</p>
    </div>
-   <div class="fstep">
+   <div class="fstep from-left">
     <div class="fnode">03</div>
     <h3>Ejecutamos</h3>
     <p>Llevamos el plan a acciones concretas y seguimos de cerca para que la estrategia avance.</p>
