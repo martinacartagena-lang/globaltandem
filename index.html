@@ -125,7 +125,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--terra);outline-offset
 /* ---------- DINÁMICA: reveal al hacer scroll ---------- */
 .reveal{opacity:0}
 .reveal.in{animation:rvUp .72s cubic-bezier(.16,.84,.44,1) both}
-@keyframes rvUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes rvUp{from{opacity:0}to{opacity:1}}
 
 /* tarjetas con relieve al pasar el mouse */
 .card{transition:transform .3s cubic-bezier(.16,.84,.44,1),box-shadow .3s ease,border-color .3s ease}
@@ -153,10 +153,10 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--terra);outline-offset
 :root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* capas decorativas: el contenido siempre por encima */
-.light,.do,.final{position:relative;overflow:hidden;isolation:isolate}
+.light,.do,.final{position:relative;overflow:hidden}
 .section>.wrap{position:relative;z-index:3}
 .hero .wrap{z-index:4}
-footer{position:relative;overflow:hidden;isolation:isolate}
+footer{position:relative;overflow:hidden}
 footer .wrap{position:relative;z-index:2}
 
 /* grano sutil en secciones oscuras */
@@ -222,7 +222,7 @@ section[id],.statement,#contacto{scroll-margin-top:90px}
 #cursorglow{position:fixed;top:0;left:0;width:480px;height:480px;margin:-240px 0 0 -240px;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(201,144,111,.14),rgba(201,144,111,0) 60%);opacity:0;transition:opacity .35s ease;will-change:transform}
 body.dark-hover #cursorglow{opacity:1}
 
-.card{transform-style:preserve-3d;will-change:transform}
+.card{transform-style:preserve-3d}
 .card>*{position:relative;z-index:1}
 .card::before{z-index:2}
 .card::after{content:"";position:absolute;inset:0;z-index:0;border-radius:5px;opacity:0;transition:opacity .3s ease;pointer-events:none;background:radial-gradient(200px circle at var(--gx,50%) var(--gy,50%),rgba(201,144,111,.20),rgba(201,144,111,0) 62%)}
@@ -261,7 +261,7 @@ body.dark-hover #cursorglow{opacity:1}
 
 /* CTA final como panel luminoso */
 .close-cta{position:relative;background:linear-gradient(135deg,rgba(201,144,111,.10),rgba(212,196,174,.03));border:1px solid rgba(212,196,174,.22)!important;border-radius:12px;padding:clamp(32px,4.2vw,54px)!important}
-.close-cta::before{content:"";position:absolute;inset:0;border-radius:12px;padding:1px;background:linear-gradient(135deg,rgba(201,144,111,.55),rgba(212,196,174,0) 58%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.close-cta{box-shadow:0 0 0 1px rgba(201,144,111,.22) inset}
 
 /* marca de agua editorial en Nosotras */
 #nosotras .lead{position:relative}
@@ -310,7 +310,6 @@ body.menu-open{overflow:hidden}
  <button class="navmenu-close" type="button" aria-label="Cerrar menú">&times;</button>
  <nav class="navmenu-in">
   <a href="#que-hacemos">Qué hacemos</a>
-  <a href="#como-trabajamos">Cómo trabajamos</a>
   <a href="#nosotras">Nosotras</a>
   <a href="#a-quienes">Con quiénes trabajamos</a>
   <a href="#contacto">Contacto</a>
@@ -323,8 +322,8 @@ body.menu-open{overflow:hidden}
   <a class="floatnav-logo" href="#top">tándem</a>
   <nav class="floatnav-links">
    <a href="#que-hacemos">Qué hacemos</a>
-   <a href="#como-trabajamos">Cómo trabajamos</a>
    <a href="#nosotras">Nosotras</a>
+   <a href="#a-quienes">Con quiénes trabajamos</a>
    <a class="btn btn-nav" href="#contacto">Hablemos</a>
   </nav>
   <button class="hamb" type="button" aria-label="Abrir menú" aria-controls="navmenu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -341,7 +340,6 @@ body.menu-open{overflow:hidden}
    <div class="nav-right">
     <nav class="nav-links">
      <a href="#que-hacemos">Qué hacemos</a>
-     <a href="#como-trabajamos">Cómo trabajamos</a>
      <a href="#nosotras">Nosotras</a>
      <a href="#a-quienes">Con quiénes trabajamos</a>
      <a href="#contacto">Contacto</a>
