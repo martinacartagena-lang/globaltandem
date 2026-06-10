@@ -237,6 +237,13 @@ body.dark-hover #cursorglow{opacity:1}
 .shape-bottom svg{transform:rotate(180deg)}
 @media (max-width:860px){.shape-divider svg{height:28px}}
 
+/* hero: tratamiento de imagen más integrado a la marca */
+.hero-bg{filter:contrast(1.06) brightness(.9) saturate(.82);background-position:60% center}
+.hero-tint{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(95% 85% at 80% 26%,rgba(201,144,111,.40),rgba(201,144,111,0) 56%);mix-blend-mode:soft-light}
+@media (min-width:861px){
+ .hero-veil{background:linear-gradient(101deg,rgba(18,29,52,.97) 0%,rgba(18,29,52,.9) 30%,rgba(18,29,52,.6) 58%,rgba(18,29,52,.32) 100%),linear-gradient(0deg,rgba(18,29,52,.9) 0%,rgba(18,29,52,0) 30%)}
+}
+
 /* tarjetas: numeradas, con barra de acento y hover enriquecido */
 .card{position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--terra),var(--sand));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,.84,.44,1)}
@@ -286,6 +293,7 @@ body.dark-hover #cursorglow{opacity:1}
 
 <section class="hero" id="top">
  <div class="hero-bg" aria-hidden="true"></div>
+ <div class="hero-tint" aria-hidden="true"></div>
  <div class="hero-veil" aria-hidden="true"></div>
  <div class="wrap">
   <header class="nav">
