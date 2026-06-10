@@ -463,22 +463,19 @@ body.dark-hover #cursorglow{opacity:1}
   }, {once:true});
  }
 
- if(!('IntersectionObserver' in window)){
-  targets.forEach(show);
-  if(flow) flow.classList.add('in');
- } else {
-  var io = new IntersectionObserver(function(entries){
-   entries.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
-  }, {threshold:0.15, rootMargin:'0px 0px -7% 0px'});
-  targets.forEach(function(el){ io.observe(el); });
-
-  if(flow){
-   var io2 = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io2.unobserve(e.target); } });
-   }, {threshold:0.25});
-   io2.observe(flow);
+ // Revela por posición real: cualquier elemento en el viewport o por encima
+ // (incluyendo bloques "saltados" al navegar por anclas) nunca queda invisible.
+ function check(){
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  for(var i=targets.length-1; i>=0; i--){
+   if(targets[i].getBoundingClientRect().top < vh*0.9){ show(targets[i]); targets.splice(i,1); }
   }
+  if(flow && flow.getBoundingClientRect().top < vh*0.85){ flow.classList.add('in'); flow = null; }
  }
+ window.addEventListener('scroll', check, {passive:true});
+ window.addEventListener('resize', check, {passive:true});
+ window.addEventListener('hashchange', function(){ setTimeout(check, 80); });
+ check();
 
  var bar = document.querySelector('.progress');
  if(bar){
