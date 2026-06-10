@@ -182,7 +182,7 @@ footer .wrap{position:relative;z-index:2}
 @keyframes cue{0%{transform:translateY(0)}100%{transform:translateY(54px)}}
 .scroll-cue:hover{opacity:1}
 
-/* ===== EXTRA PRO: nav flotante, marquee, destello, parallax ===== */
+/* ===== EXTRA PRO: nav flotante, destello, parallax ===== */
 .nav-links a{position:relative}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:100%;height:1.5px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,.84,.44,1)}
 .nav-links a:hover::after{transform:scaleX(1)}
@@ -220,7 +220,7 @@ footer .wrap{position:relative;z-index:2}
 }
 
 /* ===== PREMIUM: spotlight de cursor, sheen 3D, scroll offset ===== */
-section[id],.marquee,#contacto{scroll-margin-top:90px}
+section[id],.statement,#contacto{scroll-margin-top:90px}
 
 #cursorglow{position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(201,144,111,.17),rgba(201,144,111,0) 60%);opacity:0;transition:opacity .35s ease;mix-blend-mode:screen;will-change:transform}
 body.dark-hover #cursorglow{opacity:1}
