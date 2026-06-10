@@ -273,6 +273,15 @@ body.dark-hover #cursorglow{opacity:1}
  .card::before{transform:scaleX(1)}
  .aud-item::before{width:100%}
 }
+/* menú de correo (Gmail / Outlook / app predeterminada) */
+.mail-cta{position:relative;display:inline-block;flex:0 0 auto}
+.mail-menu{position:absolute;left:0;top:calc(100% + 10px);min-width:212px;background:var(--cream);border-radius:8px;padding:6px;box-shadow:0 20px 46px -18px rgba(8,14,30,.6);z-index:40;display:flex;flex-direction:column;gap:2px;animation:mm .16s ease}
+@keyframes mm{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mail-menu[hidden]{display:none}
+.mail-menu a{display:block;padding:10px 14px;border-radius:5px;font-size:.95rem;font-weight:600;color:var(--navy);transition:background .15s,color .15s}
+.mail-menu a:hover,.mail-menu a:focus-visible{background:var(--terra);color:var(--cream);outline:none}
+.mail-menu a span{display:block;font-weight:400;font-size:.76rem;opacity:.62;margin-top:1px}
+.mail-menu a:hover span{opacity:.85}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -420,7 +429,14 @@ body.dark-hover #cursorglow{opacity:1}
   </div>
   <div class="close-cta" id="contacto">
    <h2>Convertí el potencial de tu organización en resultados reales.</h2>
-   <a class="btn btn-cream" href="mailto:mariana.arrieta@globaltandem.com,martina.cartagena@globaltandem.com?subject=Quiero%20agendar%20una%20conversación">Agendar una conversación</a>
+   <div class="mail-cta">
+    <button type="button" class="btn btn-cream mail-trigger" aria-haspopup="true" aria-expanded="false">Agendar una conversación</button>
+    <div class="mail-menu" role="menu" hidden>
+     <a role="menuitem" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mariana.arrieta@globaltandem.com,martina.cartagena@globaltandem.com&amp;su=Quiero%20agendar%20una%20conversaci%C3%B3n">Gmail<span>Abrir en el navegador</span></a>
+     <a role="menuitem" target="_blank" rel="noopener" href="https://outlook.office.com/mail/deeplink/compose?to=mariana.arrieta@globaltandem.com,martina.cartagena@globaltandem.com&amp;subject=Quiero%20agendar%20una%20conversaci%C3%B3n">Outlook<span>Abrir en el navegador</span></a>
+     <a role="menuitem" href="mailto:mariana.arrieta@globaltandem.com,martina.cartagena@globaltandem.com?subject=Quiero%20agendar%20una%20conversaci%C3%B3n">App de correo<span>Usar la predeterminada</span></a>
+    </div>
+   </div>
   </div>
  </div>
 </section>
@@ -560,6 +576,20 @@ body.dark-hover #cursorglow{opacity:1}
    b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
   });
  }
+})();
+</script>
+
+<script>
+(function(){
+ var cta = document.querySelector('.mail-cta'); if(!cta) return;
+ var btn = cta.querySelector('.mail-trigger');
+ var menu = cta.querySelector('.mail-menu');
+ function close(){ menu.hidden = true; btn.setAttribute('aria-expanded','false'); }
+ function open(){ menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
+ btn.addEventListener('click', function(e){ e.stopPropagation(); menu.hidden ? open() : close(); });
+ document.addEventListener('click', function(e){ if(!cta.contains(e.target)) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key === 'Escape' || e.keyCode === 27) close(); });
+ menu.addEventListener('click', close);
 })();
 </script>
 
