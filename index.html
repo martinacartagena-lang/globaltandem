@@ -282,11 +282,41 @@ body.dark-hover #cursorglow{opacity:1}
 .mail-menu a:hover,.mail-menu a:focus-visible{background:var(--terra);color:var(--cream);outline:none}
 .mail-menu a span{display:block;font-weight:400;font-size:.76rem;opacity:.62;margin-top:1px}
 .mail-menu a:hover span{opacity:.85}
+/* menú hamburguesa (mobile) */
+.hamb{display:none}
+body.menu-open{overflow:hidden}
+.navmenu{position:fixed;inset:0;z-index:80;background:#16233c;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease}
+.navmenu[hidden]{display:none}
+.navmenu.open{opacity:1}
+.navmenu-close{position:absolute;top:14px;right:18px;background:transparent;border:0;color:var(--cream);font-size:2.6rem;line-height:1;cursor:pointer;width:48px;height:48px}
+.navmenu-in{display:flex;flex-direction:column;align-items:center;gap:2px;padding:24px}
+.navmenu-in a{font-family:var(--display);font-style:italic;font-size:1.95rem;color:var(--cream);padding:9px 0}
+.navmenu-in a:hover,.navmenu-in a:active{color:var(--sand)}
+.navmenu-cta{font-family:var(--body)!important;font-style:normal!important;font-size:1rem!important;margin-top:22px;color:var(--navy)!important}
+.navmenu-cta:hover{color:var(--cream)!important}
+@media (max-width:860px){
+ header.nav .btn-cream{display:none}
+ .floatnav .btn-nav{display:none}
+ .hamb{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:0;cursor:pointer}
+ .hamb span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
+
+<div class="navmenu" id="navmenu" hidden>
+ <button class="navmenu-close" type="button" aria-label="Cerrar menú">&times;</button>
+ <nav class="navmenu-in">
+  <a href="#que-hacemos">Qué hacemos</a>
+  <a href="#como-trabajamos">Cómo trabajamos</a>
+  <a href="#nosotras">Nosotras</a>
+  <a href="#a-quienes">Con quiénes trabajamos</a>
+  <a href="#contacto">Contacto</a>
+  <a class="btn btn-cream navmenu-cta" href="#contacto">Hablemos</a>
+ </nav>
+</div>
 
 <div class="floatnav" aria-hidden="true">
  <div class="wrap floatnav-in">
@@ -297,6 +327,7 @@ body.dark-hover #cursorglow{opacity:1}
    <a href="#nosotras">Nosotras</a>
    <a class="btn btn-nav" href="#contacto">Hablemos</a>
   </nav>
+  <button class="hamb" type="button" aria-label="Abrir menú" aria-controls="navmenu" aria-expanded="false"><span></span><span></span><span></span></button>
  </div>
 </div>
 
@@ -316,6 +347,7 @@ body.dark-hover #cursorglow{opacity:1}
      <a href="#contacto">Contacto</a>
     </nav>
     <a class="btn btn-cream" href="#contacto">Hablemos</a>
+    <button class="hamb" type="button" aria-label="Abrir menú" aria-controls="navmenu" aria-expanded="false"><span></span><span></span><span></span></button>
    </div>
   </header>
 
@@ -591,6 +623,20 @@ body.dark-hover #cursorglow{opacity:1}
  document.addEventListener('click', function(e){ if(!cta.contains(e.target)) close(); });
  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' || e.keyCode === 27) close(); });
  menu.addEventListener('click', close);
+})();
+</script>
+
+<script>
+(function(){
+ var menu = document.getElementById('navmenu'); if(!menu) return;
+ var hambs = document.querySelectorAll('.hamb');
+ var closeBtn = menu.querySelector('.navmenu-close');
+ function open(){ menu.hidden = false; document.body.classList.add('menu-open'); requestAnimationFrame(function(){ menu.classList.add('open'); }); hambs.forEach(function(h){ h.setAttribute('aria-expanded','true'); }); }
+ function close(){ menu.classList.remove('open'); document.body.classList.remove('menu-open'); hambs.forEach(function(h){ h.setAttribute('aria-expanded','false'); }); setTimeout(function(){ menu.hidden = true; }, 300); }
+ hambs.forEach(function(h){ h.addEventListener('click', open); });
+ if(closeBtn) closeBtn.addEventListener('click', close);
+ menu.querySelectorAll('.navmenu-in a').forEach(function(a){ a.addEventListener('click', close); });
+ document.addEventListener('keydown', function(e){ if((e.key === 'Escape' || e.keyCode === 27) && !menu.hidden) close(); });
 })();
 </script>
 
