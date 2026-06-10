@@ -217,7 +217,7 @@ footer .wrap{position:relative;z-index:2}
 }
 
 /* ===== PREMIUM: spotlight de cursor, sheen 3D, scroll offset ===== */
-section[id],.marquee{scroll-margin-top:78px}
+section[id],.marquee,#contacto{scroll-margin-top:90px}
 
 #cursorglow{position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(201,144,111,.17),rgba(201,144,111,0) 60%);opacity:0;transition:opacity .35s ease;mix-blend-mode:screen;will-change:transform}
 body.dark-hover #cursorglow{opacity:1}
@@ -253,8 +253,9 @@ body.dark-hover #cursorglow{opacity:1}
 
 @media (max-width:860px){
  .scroll-cue{display:none}
- .hero .wrap::before{display:none}
  #nosotras .lead::before{font-size:5rem}
+ .card::before{transform:scaleX(1)}
+ .aud-item::before{width:100%}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -379,7 +380,7 @@ body.dark-hover #cursorglow{opacity:1}
  </div>
 </section>
 
-<section class="section final" id="contacto">
+<section class="section final" id="a-quienes">
  <div class="wrap">
   <span class="eyebrow">A quiénes acompañamos</span>
   <p class="aud-lead">Trabajamos con organizaciones que buscan crecer con más claridad, foco y capacidad de acción.</p>
@@ -397,7 +398,7 @@ body.dark-hover #cursorglow{opacity:1}
     <p>Ideas o iniciativas que necesitan estructura, seguimiento y acción.</p>
    </div>
   </div>
-  <div class="close-cta">
+  <div class="close-cta" id="contacto">
    <h2>Convertí el potencial de tu organización en resultados reales.</h2>
    <a class="btn btn-cream" href="mailto:mariana.arrieta@globaltandem.com,martina.cartagena@globaltandem.com?subject=Quiero%20agendar%20una%20conversación">Agendar una conversación</a>
   </div>
