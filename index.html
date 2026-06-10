@@ -102,7 +102,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--terra);outline-offset
 .fade{opacity:0;transform:translateY(16px);animation:fade .85s cubic-bezier(.16,.84,.44,1) forwards}
 .f2{animation-delay:.1s}.f3{animation-delay:.2s}.f4{animation-delay:.32s}
 @keyframes fade{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade{opacity:1;transform:none}.reveal{opacity:1!important;transform:none!important}.fstep:not(:last-child)::after{transform:none!important}}
 @media (max-width:860px){
  .hero-bg{background-position:62% center}
  .hero-veil{background:linear-gradient(177deg,rgba(20,33,58,.62) 0%,rgba(20,33,58,.48) 38%,rgba(20,33,58,.9) 100%)}
@@ -116,9 +116,38 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--terra);outline-offset
  .foot{flex-direction:column;align-items:flex-start}
  .foot-meta{text-align:left}
 }
+
+/* ---------- DINÁMICA: reveal al hacer scroll ---------- */
+.reveal{opacity:0}
+.reveal.in{animation:rvUp .72s cubic-bezier(.16,.84,.44,1) both}
+@keyframes rvUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* tarjetas con relieve al pasar el mouse */
+.card{transition:transform .3s cubic-bezier(.16,.84,.44,1),box-shadow .3s ease,border-color .3s ease}
+.card:hover{transform:translateY(-7px);box-shadow:0 24px 50px -26px rgba(27,42,75,.5);border-color:var(--terra)}
+
+/* items de audiencia */
+.aud-item{transition:transform .3s ease,border-color .3s ease}
+.aud-item:hover{transform:translateY(-5px);border-top-color:var(--terra)}
+
+/* nodos del proceso */
+.fnode{transition:background .3s ease,color .3s ease,transform .3s ease,box-shadow .3s ease}
+.fstep:hover .fnode{background:var(--terra);color:var(--navy);transform:scale(1.08);box-shadow:0 0 0 6px rgba(201,144,111,.16)}
+
+/* línea del proceso que se dibuja sola */
+.js .fstep:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .85s cubic-bezier(.16,.84,.44,1) .15s}
+.js .flow.in .fstep:not(:last-child)::after{transform:scaleX(1)}
+
+/* botones con leve elevación */
+.btn-cream:hover{transform:translateY(-2px)}
+
+/* barra de progreso de lectura */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--terra);z-index:60;transition:width .08s linear;will-change:width}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 
 <section class="hero" id="top">
  <div class="hero-bg" aria-hidden="true"></div>
@@ -251,6 +280,61 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--terra);outline-offset
   </div>
  </div>
 </footer>
+
+<script>
+(function(){
+ var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var flow = document.querySelector('.flow');
+ if(reduce){ if(flow) flow.classList.add('in'); return; }
+
+ var sel = '.section .eyebrow,.s-title,.do-intro,.card,.lead,.body-lg,.fstep,.aud-lead,.aud-item,.close-cta';
+ var targets = [].slice.call(document.querySelectorAll(sel));
+ var delays = new Map();
+ ['.cap-grid','.flow','.aud-row'].forEach(function(g){
+  var kids = document.querySelectorAll(g + '>*');
+  for(var i=0;i<kids.length;i++){ delays.set(kids[i], i*0.09); }
+ });
+ targets.forEach(function(el){ el.classList.add('reveal'); });
+
+ function show(el){
+  el.style.animationDelay = (delays.get(el)||0) + 's';
+  el.classList.add('in');
+  el.addEventListener('animationend', function(){
+   el.classList.remove('reveal','in');
+   el.style.animationDelay = '';
+  }, {once:true});
+ }
+
+ if(!('IntersectionObserver' in window)){
+  targets.forEach(show);
+  if(flow) flow.classList.add('in');
+ } else {
+  var io = new IntersectionObserver(function(entries){
+   entries.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+  }, {threshold:0.15, rootMargin:'0px 0px -7% 0px'});
+  targets.forEach(function(el){ io.observe(el); });
+
+  if(flow){
+   var io2 = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io2.unobserve(e.target); } });
+   }, {threshold:0.25});
+   io2.observe(flow);
+  }
+ }
+
+ var bar = document.querySelector('.progress');
+ if(bar){
+  var upd = function(){
+   var h = document.documentElement;
+   var sc = h.scrollTop || document.body.scrollTop;
+   var mx = (h.scrollHeight - h.clientHeight) || 1;
+   bar.style.width = (sc / mx * 100) + '%';
+  };
+  window.addEventListener('scroll', upd, {passive:true});
+  upd();
+ }
+})();
+</script>
 
 </body>
 </html>
