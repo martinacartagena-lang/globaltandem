@@ -301,23 +301,22 @@ body.menu-open{overflow:hidden}
  .hamb span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px}
 }
 /* formulario de contacto */
-.formsec{background:var(--navy);color:var(--cream);position:relative;overflow:hidden;border-top:1px solid rgba(212,196,174,.12)}
-.formsec .eyebrow{color:var(--sand)}
-.form-intro{font-size:1.1rem;color:rgba(242,237,228,.78);max-width:48ch;margin-top:18px}
-.formsec .s-title{color:var(--cream)}
+.formsec{background:linear-gradient(180deg,#FBF9F4 0%,#F4EFE6 100%);color:var(--navy);position:relative;overflow:hidden}
+.form-intro{font-size:1.1rem;color:#3b4458;max-width:48ch;margin-top:18px}
 .cform{max-width:660px;margin:38px 0 0}
 .cform-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .cform .field{margin-bottom:20px}
-.cform label{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--sand);margin-bottom:8px}
-.cform input,.cform textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(212,196,174,.28);border-radius:6px;padding:13px 15px;color:var(--cream);font-family:var(--body);font-size:1rem;transition:border-color .2s ease,background .2s ease}
-.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--terra);background:rgba(255,255,255,.06)}
+.cform label{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--silver);margin-bottom:8px}
+.cform input,.cform textarea{width:100%;background:var(--cream-soft);border:1px solid var(--sand);border-radius:6px;padding:13px 15px;color:var(--navy);font-family:var(--body);font-size:1rem;transition:border-color .2s ease,background .2s ease}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--terra);background:#fff}
 .cform textarea{resize:vertical;min-height:130px}
-.cform input:user-invalid,.cform textarea:user-invalid{border-color:#e6a07f}
+.cform input:user-invalid,.cform textarea:user-invalid{border-color:#c0654a}
 .cform-honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.cform-submit{margin-top:4px;border:0;cursor:pointer}
+.cform-submit{margin-top:4px;border:0;cursor:pointer;background:var(--navy);color:var(--cream)}
+.cform-submit:hover{background:var(--terra);color:var(--cream)}
 .cform-status{margin-top:16px;font-size:.95rem;min-height:1.2em}
-.cform-status.ok{color:#a7d6b0}
-.cform-status.err{color:#e6a07f}
+.cform-status.ok{color:#2f7d4a}
+.cform-status.err{color:#c0654a}
 @media (max-width:560px){.cform-row{grid-template-columns:1fr;gap:0}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -484,6 +483,7 @@ body.menu-open{overflow:hidden}
 </section>
 
 <section class="section formsec" id="form">
+ <div class="shape-divider shape-top" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
  <div class="wrap">
   <span class="eyebrow">Hablemos</span>
   <h2 class="s-title">Convertí el potencial de tu organización en resultados reales.</h2>
@@ -512,6 +512,7 @@ body.menu-open{overflow:hidden}
    <p class="cform-status" role="status" aria-live="polite"></p>
   </form>
  </div>
+ <div class="shape-divider shape-bottom" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
 </section>
 
 <footer>
