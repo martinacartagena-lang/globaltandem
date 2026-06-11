@@ -291,6 +291,7 @@ body.dark-hover #cursorglow{opacity:1}
 /* botón de idioma ES/EN */
 .langtoggle{background:transparent;border:1px solid rgba(212,196,174,.4);color:var(--cream);font-family:var(--body);font-size:.74rem;font-weight:600;letter-spacing:.1em;padding:7px 11px;border-radius:4px;cursor:pointer;transition:border-color .2s ease,color .2s ease;line-height:1}
 .langtoggle:hover{border-color:var(--terra);color:var(--sand)}
+.nav-actions{display:flex;align-items:center;gap:12px}
 
 /* menú hamburguesa (mobile) */
 .hamb{display:none}
@@ -306,6 +307,7 @@ body.menu-open{overflow:hidden}
 .navmenu-cta:hover{color:var(--cream)!important}
 @media (max-width:860px){
  header.nav .btn-cream{display:none}
+ .nav-right{gap:14px}
  .floatnav .btn-nav{display:none}
  .hamb{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:0;cursor:pointer}
  .hamb span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px}
@@ -357,8 +359,10 @@ body.menu-open{overflow:hidden}
    <a href="#a-quienes" data-en="Who we work with">Con quiénes trabajamos</a>
    <a class="btn btn-nav" href="#form" data-en="Let's talk">Hablemos</a>
   </nav>
-  <button class="langtoggle" type="button" aria-label="Switch to English">EN</button>
-  <button class="hamb" type="button" aria-label="Abrir menú" aria-controls="navmenu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-actions">
+   <button class="langtoggle" type="button" aria-label="Switch to English">EN</button>
+   <button class="hamb" type="button" aria-label="Abrir menú" aria-controls="navmenu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
  </div>
 </div>
 
