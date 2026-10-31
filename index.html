@@ -455,6 +455,29 @@ body.menu-open{overflow:hidden}
 .hero .scroll-cue{left:2px;bottom:14px}
 @media (max-width:860px){ .hero .scroll-cue{display:none} }
 .hero-badges{margin-top:34px}
+
+/* Qué aporta: orbital interactivo de preguntas */
+.qa-top{max-width:640px}
+.qa-orbit-title{text-align:center;margin-top:64px}
+.qa-orbit{position:relative;width:min(100%,680px);aspect-ratio:1;margin:26px auto 0}
+.qa-ring{position:absolute;inset:13%;border:1px solid rgba(124,143,203,.26);border-radius:50%}
+.qa-ring::after{content:"";position:absolute;inset:11%;border:1px dashed rgba(124,143,203,.14);border-radius:50%}
+.qa-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:134px;height:134px;border-radius:50%;background:radial-gradient(circle,rgba(124,143,203,.18),rgba(124,143,203,.05));border:1px solid rgba(124,143,203,.42);display:flex;align-items:center;justify-content:center;z-index:1}
+.qa-hub span{font-family:var(--display);font-style:italic;font-size:1.7rem;color:var(--hi)}
+.qa-node{position:absolute;top:50%;left:50%;width:186px;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-240px) rotate(calc(-1 * var(--a)));text-align:center;font-size:.85rem;line-height:1.35;color:rgba(242,237,228,.9);background:#1b2a4b;border:1px solid rgba(212,196,174,.22);border-radius:12px;padding:13px 15px;transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;animation:qaFade .6s ease both}
+.qa-node:hover{border-color:var(--hi);background:#20314f;box-shadow:0 14px 34px -16px rgba(0,0,0,.6);z-index:3}
+@keyframes qaFade{from{opacity:0}to{opacity:1}}
+@media (max-width:1040px){
+ .qa-orbit{width:min(100%,560px)}
+ .qa-node{transform:translate(-50%,-50%) rotate(var(--a)) translateY(-200px) rotate(calc(-1 * var(--a)));width:160px;font-size:.8rem}
+ .qa-hub{width:112px;height:112px}
+ .qa-hub span{font-size:1.4rem}
+}
+@media (max-width:720px){
+ .qa-orbit{width:100%;aspect-ratio:auto;display:flex;flex-direction:column;gap:12px;margin-top:22px}
+ .qa-ring,.qa-hub{display:none}
+ .qa-node{position:static;transform:none!important;width:100%;text-align:left;font-size:1rem;padding:15px 18px}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -518,7 +541,7 @@ body.menu-open{overflow:hidden}
    <div class="badges hero-badges fade f4">
     <span class="badge" data-en="AI First methodology"><span class="badge-dot"></span>Metodología AI First</span>
     <span class="badge" data-en="Brand-Led Growth"><span class="badge-dot"></span>Brand-Led Growth</span>
-    <span class="badge" data-en="Fractional model"><span class="badge-dot"></span>Modelo Fraccional</span>
+    <span class="badge" data-en="Fractional Model"><span class="badge-dot"></span>Fractional Model</span>
    </div>
   </div>
    <div class="hero-photo">
@@ -554,28 +577,26 @@ body.menu-open{overflow:hidden}
 
 <section class="section do" id="que-aportamos">
  <div class="wrap">
-  <div class="qa-grid">
-   <div class="qa-left">
-    <span class="eyebrow" data-en="What we bring">Qué aportamos</span>
-    <h2 class="s-title" data-en="What tándem brings">Qué aporta tándem</h2>
-    <p class="do-intro" data-en="We get into the business to understand before proposing. Then we sort things out: what comes first, what can wait, who does what. We connect the team with the vendors and translate business goals into communication decisions. We stay close to the execution, measure, review, and adjust with the team.">Nos metemos en el negocio para entender antes de proponer. Después ordenamos: qué va primero, qué puede esperar, quién hace qué. Conectamos al equipo con los proveedores y llevamos los objetivos del negocio a decisiones de comunicación. Acompañamos la ejecución de cerca, medimos, revisamos y ajustamos con el equipo.</p>
-    <div class="badges">
-     <span class="badge" data-en="AI First methodology"><span class="badge-dot"></span>Metodología AI First</span>
-     <span class="badge" data-en="Brand-Led Growth"><span class="badge-dot"></span>Brand-Led Growth</span>
-     <span class="badge" data-en="Fractional model"><span class="badge-dot"></span>Modelo Fraccional</span>
-    </div>
+  <div class="qa-top">
+   <span class="eyebrow" data-en="What we bring">Qué aportamos</span>
+   <h2 class="s-title" data-en="What tándem brings">Qué aporta tándem</h2>
+   <p class="do-intro" data-en="We get into the business to understand before proposing. Then we sort things out: what comes first, what can wait, who does what. We connect the team with the vendors and translate business goals into communication decisions. We stay close to the execution, measure, review, and adjust with the team.">Nos metemos en el negocio para entender antes de proponer. Después ordenamos: qué va primero, qué puede esperar, quién hace qué. Conectamos al equipo con los proveedores y llevamos los objetivos del negocio a decisiones de comunicación. Acompañamos la ejecución de cerca, medimos, revisamos y ajustamos con el equipo.</p>
+   <div class="badges">
+    <span class="badge" data-en="AI First methodology"><span class="badge-dot"></span>Metodología AI First</span>
+    <span class="badge" data-en="Brand-Led Growth"><span class="badge-dot"></span>Brand-Led Growth</span>
+    <span class="badge" data-en="Fractional Model"><span class="badge-dot"></span>Fractional Model</span>
    </div>
-   <div class="qa-right">
-    <h3 class="qa-sub" data-en="The questions we help answer">Las preguntas que ayudamos a responder</h3>
-    <ul class="qa-list">
-     <li data-en="What to prioritize and what can wait.">Qué priorizar y qué puede esperar.</li>
-     <li data-en="Which channel makes sense.">Qué canal tiene sentido.</li>
-     <li data-en="Which message to work on.">Qué mensaje hay que trabajar.</li>
-     <li data-en="What team is needed.">Qué equipo hace falta.</li>
-     <li data-en="Which action truly serves the goal.">Qué acción responde de verdad al objetivo.</li>
-     <li data-en="What is worth simplifying and what deserves more investment.">Qué conviene simplificar y qué merece más inversión.</li>
-    </ul>
-   </div>
+  </div>
+  <h3 class="qa-sub qa-orbit-title" data-en="The questions we help answer">Las preguntas que ayudamos a responder</h3>
+  <div class="qa-orbit">
+   <div class="qa-ring" aria-hidden="true"></div>
+   <div class="qa-hub"><span>¿Qué?</span></div>
+   <div class="qa-node" style="--a:0deg" data-en="What to prioritize and what can wait.">Qué priorizar y qué puede esperar.</div>
+   <div class="qa-node" style="--a:60deg" data-en="Which channel makes sense.">Qué canal tiene sentido.</div>
+   <div class="qa-node" style="--a:120deg" data-en="Which message to work on.">Qué mensaje hay que trabajar.</div>
+   <div class="qa-node" style="--a:180deg" data-en="What team is needed.">Qué equipo hace falta.</div>
+   <div class="qa-node" style="--a:240deg" data-en="Which action truly serves the goal.">Qué acción responde de verdad al objetivo.</div>
+   <div class="qa-node" style="--a:300deg" data-en="What is worth simplifying and what deserves more investment.">Qué conviene simplificar y qué merece más inversión.</div>
   </div>
  </div>
 </section>
