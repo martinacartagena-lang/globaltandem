@@ -271,7 +271,8 @@ body.dark-hover #cursorglow{opacity:1}
 
 /* marca de agua editorial en Nosotras */
 #nosotras .lead{position:relative}
-#nosotras .lead::before{content:none}
+#nosotras .eyebrow::before{display:none}
+#nosotras .lead::before{content:"\201C";position:absolute;font-family:var(--display);font-style:italic;font-size:7rem;line-height:1;color:var(--terra);opacity:.16;top:-.46em;left:-.16em;z-index:-1;pointer-events:none}
 
 @media (max-width:860px){
  .scroll-cue{display:none}
