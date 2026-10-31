@@ -349,7 +349,7 @@ body.menu-open{overflow:hidden}
 .qa-list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--terra)}
 .qa-ia{margin-top:40px;font-family:var(--display);font-style:italic;font-size:clamp(1.15rem,2vw,1.5rem);color:var(--cream);max-width:42ch;border-left:2px solid var(--terra);padding-left:20px}
 
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:50px}
 .work-grid .card h3{font-size:1.16rem;line-height:1.32}
 .work-grid .card p{margin-top:14px}
 
@@ -371,6 +371,7 @@ body.menu-open{overflow:hidden}
 .case-logo img{max-height:48px;width:auto;max-width:74%;object-fit:contain}
 .case-title{font-family:var(--display);font-style:italic;font-size:1.4rem;color:var(--cream);line-height:1.26}
 .case-sit{margin-top:14px;color:rgba(242,237,228,.8);font-size:1rem;line-height:1.62}
+.case-result{margin-top:12px;color:rgba(242,237,228,.82);font-size:1rem;line-height:1.6}
 .case-sit strong{color:var(--sand);font-weight:600}
 .case-block{margin-top:14px;border-top:1px solid rgba(212,196,174,.16);padding-top:14px}
 .case-block summary{font-family:var(--body);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);cursor:default;list-style:none}
@@ -476,7 +477,6 @@ body.menu-open{overflow:hidden}
    <span class="sit-chip" data-en="The website needs an update.">La web necesita una actualización.</span>
    <span class="sit-chip" data-en="The team has ideas and leaders want to communicate more.">El equipo tiene ideas y los líderes quieren comunicar más.</span>
   </div>
-  <p class="crece-text" data-en="It is what happens when an organization grows: new projects, channels, vendors, and people appear. Each one moves on its own, and it gets harder to decide what comes first and how it connects to the business goals.">Es lo que pasa cuando una organización crece: aparecen proyectos, canales, proveedores y personas nuevas. Cada cosa avanza por su lado, y cada vez cuesta más decidir qué va primero y cómo se conecta con los objetivos del negocio.</p>
   <p class="crece-close" data-en="That is the moment when communication needs direction.">Ese es el momento en que la comunicación necesita dirección.</p>
  </div>
  <div class="shape-divider shape-bottom" aria-hidden="true"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="shape-fill" d="M0,0 H1200 V30 C800,56 400,56 0,30 Z"/></svg></div>
@@ -509,8 +509,6 @@ body.menu-open{overflow:hidden}
    <div class="card from-left"><h3 data-en="When there are many initiatives at once and it is hard to decide what comes first">Cuando hay muchas iniciativas al mismo tiempo y cuesta decidir qué va primero</h3><p data-en="Strategy and communication: priorities, messages, channels, and a plan the team can follow.">Estrategia y comunicación: prioridades, mensajes, canales y un plan que el equipo pueda seguir.</p></div>
    <div class="card from-left"><h3 data-en="When you need to generate demand or launch something new">Cuando hay que generar demanda o lanzar algo nuevo</h3><p data-en="Marketing and campaigns: content, ad spend, channels, CRM, and measurement, connected to sales.">Marketing y campañas: contenidos, pauta, canales, CRM y medición, conectados con ventas.</p></div>
    <div class="card from-left"><h3 data-en="When a gathering can open important conversations">Cuando un encuentro puede abrir conversaciones importantes</h3><p data-en="Events: why to hold it, who needs to be there, what conversation we want to spark, and what happens afterward.">Eventos: para qué hacerlo, quiénes tienen que estar, qué conversación queremos generar y qué pasa después.</p></div>
-   <div class="card from-left"><h3 data-en="When the team needs new tools or better criteria">Cuando el equipo necesita nuevas herramientas o mejores criterios</h3><p data-en="Training: marketing, communication, applied AI, processes, and methodologies, always based on the team's real work.">Formación: marketing, comunicación, IA aplicada, procesos y metodologías, siempre sobre el trabajo real del equipo.</p></div>
-   <div class="card from-left"><h3 data-en="When a founder, leader, or specialist needs their own voice">Cuando un founder, líder o especialista necesita una voz propia</h3><p data-en="Leadership positioning: topics, messages, channels, cadence, and a content system.">Posicionamiento de líderes: temas, mensajes, canales, ritmo y un sistema de contenidos.</p></div>
    <div class="card from-left"><h3 data-en="When the website or the tools no longer keep up">Cuando la web o las herramientas ya no acompañan</h3><p data-en="Web and tools: we figure out what is needed and coordinate whoever builds it.">Web y herramientas: entendemos qué hace falta y coordinamos a quien lo construye.</p></div>
   </div>
  </div>
@@ -526,24 +524,6 @@ body.menu-open{overflow:hidden}
    <div class="way"><h3 data-en="A specific project.">Un proyecto puntual.</h3><p data-en="A launch, an event, a yearly plan, or training for the team.">Un lanzamiento, un evento, un plan para el año o una formación para el equipo.</p></div>
    <div class="way"><h3 data-en="Coordination.">Coordinación.</h3><p data-en="When people and vendors are already working, we get them looking in the same direction.">Cuando ya hay personas y proveedores trabajando, los ponemos a mirar hacia el mismo lado.</p></div>
    <div class="way"><h3 data-en="Specialists.">Especialistas.</h3><p data-en="When needed, we bring in our team for content, design, ad spend, and web.">Si hace falta, sumamos a nuestro equipo de contenidos, diseño, pauta y web.</p></div>
-  </div>
-  <h3 class="proc-sub" data-en="The process">El proceso</h3>
-  <div class="flow">
-   <div class="fstep from-left">
-    <div class="fnode">01</div>
-    <h3 data-en="We understand.">Entendemos.</h3>
-    <p data-en="We listen to the people, get to know the business, and see what this moment needs.">Escuchamos a las personas, conocemos el negocio y vemos qué necesita este momento.</p>
-   </div>
-   <div class="fstep from-left">
-    <div class="fnode">02</div>
-    <h3 data-en="We organize.">Ordenamos.</h3>
-    <p data-en="We define priorities and a possible path, with who does what.">Definimos prioridades y un camino posible, con quién hace qué.</p>
-   </div>
-   <div class="fstep from-left">
-    <div class="fnode">03</div>
-    <h3 data-en="We accompany.">Acompañamos.</h3>
-    <p data-en="We work with the team on execution, measure, and adjust.">Trabajamos con el equipo en la ejecución, medimos y ajustamos.</p>
-   </div>
   </div>
  </div>
 </section>
@@ -569,65 +549,33 @@ body.menu-open{overflow:hidden}
   <h2 class="s-title" data-en="Cases">Casos</h2>
   <p class="do-intro" data-en="Some of the organizations we work with and what we did together.">Algunas organizaciones con las que trabajamos y lo que hicimos juntos.</p>
   <div class="cases">
-  <article class="case">
-   <div class="case-logo"><img src="assets/clientes/anvac-logo.webp" alt="ANVAC" loading="lazy"></div>
-   <h3 class="case-title" data-en="Ongoing direction and presence at events">Dirección continua y presencia en eventos</h3>
-   <p class="case-sit"><strong data-en="The situation.">La situación.</strong> <span data-en="ANVAC supports laboratories with equipment, consumables, and technical service. It was growing and needed its communication and sales areas to move with the same criteria.">ANVAC acompaña a laboratorios con equipamiento, consumibles y servicio técnico. Estaba creciendo y necesitaba que la comunicación y el área comercial avanzaran con un mismo criterio.</span></p>
-   <details class="case-block" open>
-    <summary data-en="What we decided">Lo que decidimos</summary>
-    <p data-en="We joined as ongoing direction: a weekly meeting with the owners, support for the sales area, organizing the sales system with a monthly report, and brand messages and materials. Events became part of the sales strategy. We managed the entire process of their presence at SAFYBI and the VI CAEM: the definition, the messages, the materials, the booth coordination, and the follow-up on contacts.">Nos sumamos como dirección continua: reunión semanal con los dueños, acompañamiento al área comercial, orden del sistema comercial con un reporte mensual, y mensajes y materiales de marca. Los eventos entraron como parte de la estrategia comercial. Gestionamos todo el proceso de su presencia en SAFYBI y en el VI CAEM: la definición, los mensajes, los materiales, la coordinación del stand y el seguimiento de los contactos.</p>
-   </details>
-   <details class="case-block" open>
-    <summary data-en="What changed">Lo que cambió</summary>
-    <p data-en="Events now have a commercial goal and follow-up afterward, connected to the work of the sales area.">Los eventos pasaron a tener un objetivo comercial y un seguimiento posterior, conectados con el trabajo del área de ventas.</p>
-   </details>
-  <div class="case-photos">
-   <img src="assets/casos/anvac-safybi.webp" alt="Equipo de ANVAC en su stand de SAFYBI" data-en-alt="ANVAC team at their SAFYBI booth" loading="lazy">
-   <img src="assets/casos/anvac-caem.webp" alt="ANVAC en el VI CAEM" data-en-alt="ANVAC at the VI CAEM" loading="lazy">
-  </div>
-  </article>
-  <article class="case">
-   <div class="case-logo"><img src="assets/clientes/mbi-logo.webp" alt="Centro MBI" loading="lazy"></div>
-   <h3 class="case-title" data-en="More enrollments for the traditional Chinese medicine school">Más inscriptos para la escuela de medicina tradicional china</h3>
-   <p class="case-sit"><strong data-en="The situation.">La situación.</strong> <span data-en="Dr. Gabriel Carrascosa runs Centro MBI, focused on Integrative Biological Medicine, and a training school specialized in traditional Chinese medicine. The goal was concrete: add enrollments and reach more people interested in training.">El Dr. Gabriel Carrascosa dirige el Centro MBI, de Medicina Biológica Integrativa, y una escuela de capacitación especializada en medicina tradicional china. El objetivo era concreto: sumar inscriptos y llegar a más personas interesadas en formarse.</span></p>
-   <details class="case-block" open>
-    <summary data-en="What we decided">Lo que decidimos</summary>
-    <p data-en="We started by analyzing the competition. With that, we aligned Instagram and WhatsApp so they tell the same story and lead to the same place, redesigned the entire website, and redefined positioning in search engines (SEO) and in the answers of AI tools (GEO).">Empezamos por analizar a la competencia. Con eso alineamos Instagram y WhatsApp para que cuenten lo mismo y lleven al mismo lugar, rediseñamos la web completa y redefinimos el posicionamiento en buscadores (SEO) y en las respuestas de herramientas de IA (GEO).</p>
-   </details>
-   <details class="case-block" open>
-    <summary data-en="What changed">Lo que cambió</summary>
-    <p data-en="The school now has coordinated channels and a new website designed to turn a visit into an inquiry.">La escuela tiene canales coordinados y una web nueva pensada para que una visita se convierta en una consulta.</p>
-   </details>
-  </article>
-  <article class="case">
-   <div class="case-logo"><img src="assets/clientes/motorola-logo.webp" alt="Motorola Solutions" loading="lazy"></div>
-   <h3 class="case-title" data-en="Motorola Academy for distributors in Europe">Motorola Academy para distribuidores en Europa</h3>
-   <p class="case-sit"><strong data-en="The situation.">La situación.</strong> <span data-en="Motorola Solutions' authorized distributors in Europe sell radios at points of sale, alongside other brands and with technical products. They needed tools to convey the product's value in every sales conversation.">Los distribuidores autorizados de Motorola Solutions en Europa venden radios en puntos de venta, junto a otras marcas y con productos técnicos. Necesitaban herramientas para contar el valor del producto en cada conversación de venta.</span></p>
-   <details class="case-block" open>
-    <summary data-en="What we decided">Lo que decidimos</summary>
-    <p data-en="We designed Motorola Academy, a training program in marketing applied to sales, in English, Spanish, and Portuguese. Each session ends with a tool ready to use the next day.">Diseñamos Motorola Academy, un programa de formación en marketing aplicado a la venta, en inglés, español y portugués. Cada encuentro termina con una herramienta lista para usar al día siguiente.</p>
-   </details>
-   <details class="case-block" open>
-    <summary data-en="What is changing">Lo que cambia</summary>
-    <p data-en="The program is underway, from September to March. At the close, Motorola receives a view of participation, of what each distributor learned, and of the first commercial indicators.">El programa está en curso, de septiembre a marzo. Al cierre, Motorola recibe una vista de la participación, de lo que aprendió cada distribuidor y de los primeros indicadores comerciales.</p>
-   </details>
-  </article>
-  <article class="case">
-   <div class="case-logo"><img src="assets/clientes/banco-comercio-logo.webp" alt="Banco de Comercio" loading="lazy"></div>
-   <h3 class="case-title" data-en="A working breakfast for SME clients">Un desayuno de trabajo para clientes pyme</h3>
-   <p class="case-sit"><strong data-en="The situation.">La situación.</strong> <span data-en="Banco de Comercio wanted to strengthen the relationship with its SME clients with something useful for their day to day.">El Banco de Comercio quería fortalecer la relación con sus clientes pyme con una propuesta que les sirviera en el día a día.</span></p>
-   <details class="case-block" open>
-    <summary data-en="What we decided">Lo que decidimos</summary>
-    <p data-en="We put together digital marketing training in a working-breakfast format: a practical talk and a guide for each SME to take and apply afterward.">Armamos una capacitación en marketing digital en formato de desayuno de trabajo: una charla práctica y una guía para que cada pyme se llevara y aplicara después.</p>
-   </details>
-   <details class="case-block" open>
-    <summary data-en="What changed">Lo que cambió</summary>
-    <p data-en="The bank added a loyalty initiative with useful content, and its clients left with concrete tools for their business.">El banco sumó una acción de fidelización con contenido útil, y sus clientes se fueron con herramientas concretas para su negocio.</p>
-   </details>
-  <div class="case-photos">
-   <img src="assets/casos/banco-comercio-charla.webp" alt="Charla de marketing digital para clientes pyme en el Banco de Comercio" data-en-alt="Digital marketing talk for SME clients at Banco de Comercio" loading="lazy">
-  </div>
-  </article>
+   <article class="case">
+    <div class="case-logo"><img src="assets/clientes/anvac-logo.webp" alt="ANVAC" loading="lazy"></div>
+    <h3 class="case-title" data-en="Ongoing direction and presence at events">Dirección continua y presencia en eventos</h3>
+    <p class="case-result" data-en="Events now have a commercial goal and follow-up afterward, connected to the sales area.">Los eventos pasaron a tener un objetivo comercial y un seguimiento posterior, conectados con el área de ventas.</p>
+    <div class="case-photos">
+     <img src="assets/casos/anvac-safybi.webp" alt="Equipo de ANVAC en su stand de SAFYBI" data-en-alt="ANVAC team at their SAFYBI booth" loading="lazy">
+     <img src="assets/casos/anvac-caem.webp" alt="ANVAC en el VI CAEM" data-en-alt="ANVAC at the VI CAEM" loading="lazy">
+    </div>
+   </article>
+   <article class="case">
+    <div class="case-logo"><img src="assets/clientes/mbi-logo.webp" alt="Centro MBI" loading="lazy"></div>
+    <h3 class="case-title" data-en="More enrollments for the traditional Chinese medicine school">Más inscriptos para la escuela de medicina tradicional china</h3>
+    <p class="case-result" data-en="Coordinated channels and a new website designed to turn a visit into an inquiry.">Canales coordinados y una web nueva pensada para que una visita se convierta en una consulta.</p>
+   </article>
+   <article class="case">
+    <div class="case-logo"><img src="assets/clientes/motorola-logo.webp" alt="Motorola Solutions" loading="lazy"></div>
+    <h3 class="case-title" data-en="Motorola Academy for distributors in Europe">Motorola Academy para distribuidores en Europa</h3>
+    <p class="case-result" data-en="A marketing-for-sales training program in three languages, currently underway.">Un programa de formación en marketing aplicado a la venta, en tres idiomas, en curso.</p>
+   </article>
+   <article class="case">
+    <div class="case-logo"><img src="assets/clientes/banco-comercio-logo.webp" alt="Banco de Comercio" loading="lazy"></div>
+    <h3 class="case-title" data-en="A working breakfast for SME clients">Un desayuno de trabajo para clientes pyme</h3>
+    <p class="case-result" data-en="A loyalty initiative with useful content, and clients who left with concrete tools.">Una acción de fidelización con contenido útil, y clientes que se fueron con herramientas concretas.</p>
+    <div class="case-photos">
+     <img src="assets/casos/banco-comercio-charla.webp" alt="Charla de marketing digital para clientes pyme en el Banco de Comercio" data-en-alt="Digital marketing talk for SME clients at Banco de Comercio" loading="lazy">
+    </div>
+   </article>
   </div>
  </div>
 </section>
