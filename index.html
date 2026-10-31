@@ -448,6 +448,12 @@ body.menu-open{overflow:hidden}
 #crece .sit-t{margin:0 auto}
 
 #crece .sit-grid{max-width:880px;margin-left:auto;margin-right:auto;justify-items:center;column-gap:40px}
+
+/* hero: reveal de la foto + scroll cue */
+.hero-photo{animation:heroRise .9s cubic-bezier(.16,.84,.44,1) .15s both}
+@keyframes heroRise{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}
+.hero .scroll-cue{left:2px;bottom:14px}
+@media (max-width:860px){ .hero .scroll-cue{display:none} }
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -513,6 +519,7 @@ body.menu-open{overflow:hidden}
     <img src="assets/equipo/tandem-hero.webp" alt="Mariana y Martina, socias de tándem" width="1000" height="1500">
    </div>
   </div>
+  <a class="scroll-cue" href="#crece" aria-label="Bajar"><span>Scroll</span><i></i></a>
  </div>
 </section>
 
