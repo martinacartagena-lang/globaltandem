@@ -437,7 +437,8 @@ body.menu-open{overflow:hidden}
 .qa-left .do-intro{margin-top:20px}
 .qa-sub{margin-top:0}
 .qa-right .qa-list{grid-template-columns:1fr;max-width:none;margin-top:22px}
-.badge-ai{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:10px 18px;border:1px solid rgba(124,143,203,.45);border-radius:40px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--hi)}
+.badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border:1px solid rgba(124,143,203,.45);border-radius:40px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--hi)}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--hi);flex:0 0 auto}
 @media (max-width:860px){ .qa-grid{grid-template-columns:1fr;gap:34px} }
 </style>
@@ -538,7 +539,11 @@ body.menu-open{overflow:hidden}
     <span class="eyebrow" data-en="What we bring">Qué aportamos</span>
     <h2 class="s-title" data-en="What tándem brings">Qué aporta tándem</h2>
     <p class="do-intro" data-en="We get into the business to understand before proposing. Then we sort things out: what comes first, what can wait, who does what. We connect the team with the vendors and translate business goals into communication decisions. We stay close to the execution, measure, review, and adjust with the team.">Nos metemos en el negocio para entender antes de proponer. Después ordenamos: qué va primero, qué puede esperar, quién hace qué. Conectamos al equipo con los proveedores y llevamos los objetivos del negocio a decisiones de comunicación. Acompañamos la ejecución de cerca, medimos, revisamos y ajustamos con el equipo.</p>
-    <span class="badge-ai"><span class="badge-dot"></span>Metodología AI First</span>
+    <div class="badges">
+     <span class="badge" data-en="AI First methodology"><span class="badge-dot"></span>Metodología AI First</span>
+     <span class="badge" data-en="Brand-Led Growth"><span class="badge-dot"></span>Brand-Led Growth</span>
+     <span class="badge" data-en="Fractional model"><span class="badge-dot"></span>Modelo Fraccional</span>
+    </div>
    </div>
    <div class="qa-right">
     <h3 class="qa-sub" data-en="The questions we help answer">Las preguntas que ayudamos a responder</h3>
